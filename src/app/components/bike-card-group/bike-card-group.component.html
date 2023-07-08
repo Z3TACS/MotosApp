@@ -1,0 +1,15 @@
+<section class="container-fluid pt-5    ">
+
+    <div *ngIf="isLoading">
+        <p>Mostrar Spinner</p>
+    </div>
+
+    <div *ngIf="!isLoading && requestError">
+        <p>Error en la llamada al microservicio</p>
+    </div>
+
+    <div *ngIf="!isLoading && !requestError" class="row">
+        <app-bike-card *ngFor = "let bikeData of bikesData" [bikeData] = "bikeData" class="col-xs-12 col-md-6 col-lg-4"></app-bike-card>
+    </div>
+
+</section>

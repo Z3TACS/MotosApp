@@ -1,0 +1,19 @@
+<nav class="py-5">
+
+    <div *ngIf="isLoading">
+        <p>Mostrar Spinner</p>
+    </div>
+
+    <div *ngIf="!isLoading && requestError">
+        <p>Error en la llamada al microservicio</p>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center flex-wrap" *ngIf="!isLoading && !requestError">
+
+        <li *ngFor="let linkData of links" class="mx-5 py-5">
+            <a href="{{linkData.url}}" class="link_style">{{linkData.title}}</a>
+        </li>
+
+    </div>
+
+</nav>
