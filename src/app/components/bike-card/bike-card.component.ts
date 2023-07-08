@@ -2,12 +2,15 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Bike, BikeData, BikeDictionary, Company, CompanyDictionary, Engine } from 'src/app/models/bike-card.model';
 import { AxiosAPIService } from '../../axios-api.service';
 import { EngineDictionary, DimensionsDictionary, Chassis, Dimensions, ChassisDictionary } from '../../models/bike-card.model';
+import { NgIf, NgFor } from '@angular/common';
 
 
 @Component({
-  selector: 'app-bike-card',
-  templateUrl: './bike-card.component.html',
-  styleUrls: ['./bike-card.component.css']
+    selector: 'app-bike-card',
+    templateUrl: './bike-card.component.html',
+    styleUrls: ['./bike-card.component.css'],
+    standalone: true,
+    imports: [NgIf, NgFor]
 })
 export class BikeCardComponent implements OnInit{
 

@@ -1,11 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { AxiosAPIService } from 'src/app/axios-api.service';
 import { BikeData } from 'src/app/models/bike-card.model';
+import { BikeCardComponent } from '../bike-card/bike-card.component';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-bike-card-group',
-  templateUrl: './bike-card-group.component.html',
-  styleUrls: ['./bike-card-group.component.css']
+    selector: 'app-bike-card-group',
+    templateUrl: './bike-card-group.component.html',
+    styleUrls: ['./bike-card-group.component.css'],
+    standalone: true,
+    imports: [NgIf, NgFor, BikeCardComponent]
 })
 export class BikeCardGroupComponent{
 

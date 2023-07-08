@@ -1,11 +1,14 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { AxiosAPIService } from 'src/app/axios-api.service';
 import { Links } from 'src/app/models/menu-navbar.model';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-menu-navbar',
-  templateUrl: './menu-navbar.component.html',
-  styleUrls: ['./menu-navbar.component.css']
+    selector: 'app-menu-navbar',
+    templateUrl: './menu-navbar.component.html',
+    styleUrls: ['./menu-navbar.component.css'],
+    standalone: true,
+    imports: [NgIf, NgFor]
 })
 
 export class MenuNavbarComponent {
