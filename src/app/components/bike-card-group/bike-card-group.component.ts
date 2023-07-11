@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { AxiosAPIService } from 'src/app/axios-api.service';
 import { BikeData } from 'src/app/models/bike-card.model';
 import { BikeCardComponent } from '../bike-card/bike-card.component';
@@ -11,36 +11,52 @@ import { NgIf, NgFor } from '@angular/common';
     standalone: true,
     imports: [NgIf, NgFor, BikeCardComponent]
 })
-export class BikeCardGroupComponent{
+export class BikeCardGroupComponent implements OnInit{
+
+  api: AxiosAPIService
 
   bikesData: Array<BikeData>;
-  
   isLoading: boolean = true;
   requestError: boolean = false;
 
-
+  @Input() title: string;
+  @Input() showlast: boolean;
 
   constructor(api: AxiosAPIService){
-    this.getBikes(api);
+    this.api = api;
   } 
 
-  getBikes(api: AxiosAPIService){
+  ngOnInit(): void {
+    this.getBikeInfo(this.api);
+  }
+
+  getBikeInfo(api: AxiosAPIService){
     let vm = this;
+
+    if(this.showlast){
+      this.getBikes("/bikesLast", api);
+      return
+    }
+
+    this.getBikes("/bikes", api);
+
   
-    api.axiosInstance.get("/bikes")
-      .then(function(response){
-        console.log(response);
-        vm.bikesData = response.data;
-        vm.requestError = false;
-      })
-      .catch(function(error){
-        console.log(error)
-        vm.requestError = true;
-      })
-      .finally(function(){
-        vm.isLoading = false;
-      });
-  
-  
+  }
+
+  getBikes(url:string, api: AxiosAPIService){
+    let vm = this;
+    api.axiosInstance.get(url)
+    .then(function(response){
+      console.log(response);
+      vm.bikesData = response.data;
+      vm.requestError = false;
+    })
+    .catch(function(error){
+      console.log(error)
+      vm.requestError = true;
+    })
+    .finally(function(){
+      vm.isLoading = false;
+    });
   }
 }

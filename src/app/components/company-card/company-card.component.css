@@ -1,0 +1,20 @@
+.normalise-aspect-ratio{
+    aspect-ratio: 2/1;
+    object-fit: contain;
+}
+
+.info{
+    font-weight: 700;
+    color: rgb(202, 0, 0);
+
+}
+
+.info:hover{
+    cursor: pointer;
+}
+
+.company-card{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+

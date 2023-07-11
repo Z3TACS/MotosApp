@@ -62,7 +62,7 @@ ngOnInit(){
   
   
   const bikeDataDescriptionLength = this.bikeData.bike.description.length;
-  const MAX_CHARACTERS = 320;
+  const MAX_CHARACTERS = 180;
 
 
   if (bikeDataDescriptionLength > MAX_CHARACTERS){

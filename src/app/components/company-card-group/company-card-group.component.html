@@ -1,6 +1,5 @@
 <section class="container-lg container-fluid pt-5">
-    
-    <h2 *ngIf="title" class="text-center">{{title}}</h2>
+    <h2 *ngIf="title" class="text-center pb-4">{{title}}</h2>
 
     <div *ngIf="isLoading">
         <p>Mostrar Spinner</p>
@@ -11,7 +10,6 @@
     </div>
 
     <div *ngIf="!isLoading && !requestError" class="row">
-        <app-bike-card *ngFor = "let bikeData of bikesData" [bikeData] = "bikeData" class="col-xs-12 col-md-6 col-lg-4"></app-bike-card>
+        <app-company-card *ngFor = "let companyData of companiesData" [companydata] = "companyData" class="col-xs-12 col-md-6 col-xl-4"></app-company-card>
     </div>
-
 </section>

@@ -1,4 +1,4 @@
-<nav class="py-5">
+<nav>
 
     <div *ngIf="isLoading">
         <p>Mostrar Spinner</p>
@@ -10,8 +10,8 @@
 
     <div class="d-flex justify-content-center align-items-center flex-wrap" *ngIf="!isLoading && !requestError">
 
-        <li *ngFor="let linkData of links" class="mx-5 py-5">
-            <a href="{{linkData.url}}" class="link_style">{{linkData.title}}</a>
+        <li *ngFor="let linkData of links" class="mx-5 py-4">
+            <a routerLink="{{linkData.url}}" class="link_style">{{linkData.title}}</a>
         </li>
 
     </div>
